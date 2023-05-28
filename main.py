@@ -18,7 +18,7 @@ def localizare():
         sleep(1)
     else:
         print('este in apropiere')
-        if ora_user >= apus:
+        if (ora_user >= apus) or (ora_user < rasarit):
             print('te poti uita pe cer')
         else:
             localizare()
