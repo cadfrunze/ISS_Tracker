@@ -1,5 +1,10 @@
-from datetime import datetime
+import time
 
-astazi = datetime.now()
-with open('./work_log.txt', 'a') as innregistrare:
-    innregistrare.writelines(f"Data: {astazi.day}/{astazi.month}/{astazi.year} | Ora: {astazi.hour}:{astazi.minute}\n")
+a = 10
+while a > 1:
+
+    a -= 1
+    if a == 2:
+        break
+    print(a)
+    time.sleep(2)
