@@ -11,17 +11,18 @@ def localizare():
     rasarit: int = rasarit_user()
     apus: int = apus_user()
 
-    while (iss_lat - USER_LAT < 0 or iss_lat - USER_LAT > 5) or (iss_lng - USER_LNG < 0 or iss_lng - USER_LNG > 5):
+    while True:
+        if (iss_lat - USER_LAT >= 0 or iss_lat - USER_LAT <= 5) and (
+                iss_lng - USER_LNG >= 0 or iss_lng - USER_LNG <= 5) and (ora_user >= apus) or (ora_user < rasarit):
+            pass
+        print(f'lat_iss: {iss_lat}, lng_iss: {iss_lng}, ora mea: {ora_user}, rasarit: {rasarit}, apus: {apus}')
+        print(f"Latitudine apropiere: {iss_lat - USER_LAT}, Longitudine apropiere: {iss_lng - USER_LNG}")
         iss_lat: float = lat_iss()
         iss_lng: float = lng_iss()
-        print(f'lat_iss: {iss_lat}, lng_iss: {iss_lng}')
+        ora_user: int = timp_user()['ora']
+        rasarit: int = rasarit_user()
+        apus: int = apus_user()
         sleep(1)
-    else:
-        print('este in apropiere')
-        if (ora_user >= apus) or (ora_user < rasarit):
-            print('te poti uita pe cer')
-        else:
-            localizare()
 
 
 if '__main__' == __name__:
